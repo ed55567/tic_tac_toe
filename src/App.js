@@ -71,16 +71,18 @@ const App = () => {
   };
 
   const makeMoveCPU = () => {
-    // eslint-disable-next-line
-    const emptyCells = state.board.reduce((acc, cell, index) => {
-      if (cell === '') {
-        acc.push(index);
-      }
-      return acc;
-    }, []);
-
-    const bestMove = minimax(state.board, 'O').index;
-    handleCellClick(bestMove);
+    setTimeout(() => {
+      //eslint-disable-next-line
+      const emptyCells = state.board.reduce((acc, cell, index) => {
+        if (cell === '') {
+          acc.push(index);
+        }
+        return acc;
+      }, []);
+  
+      const bestMove = minimax(state.board, 'O').index;
+      handleCellClick(bestMove);
+    }, 1000); // 1-second delay to make it seem like the CPU is "thinking"
   };
 
   const minimax = (board, player) => {
