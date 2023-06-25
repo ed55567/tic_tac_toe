@@ -1,38 +1,145 @@
 .App {
   text-align: center;
+  margin-top: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body{
+  background-color: #192a32;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 34px;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-menu,
+.symbol-selection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 40px;
 }
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  background-color: #1f3540;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  font-weight: 700;
+  font-size: 36px;
+  border: 2px solid #10212a;
+  box-shadow: inset 0px -8px 0px #10212a;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#x{
+  background-color: #31c3bd;
+  border-radius: 15px;
+  height: 25px;
+  width: 60px;
+  align-items: center;
+}
+
+#o{
+  background-color: #f2b137;
+  border-radius: 15px;
+  height: 25px;
+  width: 60px;
+  align-items: center;
+}
+
+#ties{
+  background-color: #a8bec9;
+  border-radius: 15px;
+  height: 25px;
+  width: 100px;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.game-status {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.modal p {
+  font-size: 34px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:last-child {
+  margin-right: 0;
+}
+
+.modal button:hover {
+  background-color: #2980b9;
+}
+
+button {
+  background-color: #3498db;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
