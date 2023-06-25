@@ -79,7 +79,7 @@ const App = () => {
   
       const bestMove = minimax(state.board, 'O').index;
       handleCellClick(bestMove);
-    }, 1000); // 1-second delay to make it seem like the CPU is "thinking"
+    }, 500); // 1-second delay to make it seem like the CPU is "thinking"
   };
 
   const minimax = (board, player) => {
@@ -201,6 +201,9 @@ const App = () => {
     return (
       <div className="start-menu">
         <h2>Select Game Mode:</h2>
+        <h3>REMEMBER: X GOES FIRST <br>
+        </br>X IS ALWAYS PLAYER 1<br>
+        </br>O IS ALWAYS PLAYER 2 / CPU</h3>
         <button className="cpu-menu" onClick={() => handleModeSelect('cpu')}>NEW GAME (VS CPU)</button>
         <button className="player-menu" onClick={() => handleModeSelect('player')}>NEW GAME (VS PLAYER)</button>
       </div>
@@ -213,27 +216,18 @@ const App = () => {
     if (state.gameOver) {
       if (state.winner) {
         return (
-          <div>
-            <p>{state.winner} TAKES THE ROUND!</p>
+          <div className='info'>
             <p>Score:</p>
             <p>X: {state.scores.X}</p>
             <p>O: {state.scores.O}</p>
             <p>Ties: {state.scores.ties}</p>
             <div className="modal">
-              <p>{state.winner} TAKES THE ROUND!</p>
-              <button onClick={handleQuit}>Quit</button>
-              <button onClick={handleNextRound}>Next Round</button>
             </div>
           </div>
         );
       } else {
         return (
           <div>
-            <p>It&apos;s a tie!</p>
-            <p>Score:</p>
-            <p>X: {state.scores.X}</p>
-            <p>O: {state.scores.O}</p>
-            <p>Ties: {state.scores.ties}</p>
             <div className="modal">
               <p>It&apos;s a tie!</p>
               <button onClick={handleQuit}>Quit</button>
@@ -245,7 +239,6 @@ const App = () => {
     } else {
       return (
         <div>
-          <p>Current Player: {state.currentPlayer}</p>
           <p>Score:</p>
           <div className="info">
             <p id="x">X: {state.scores.X}</p>
@@ -256,6 +249,8 @@ const App = () => {
       );
     }
   };
+  
+  
 
   if (!state.gameMode) {
     return (
@@ -276,7 +271,7 @@ const App = () => {
         <div className="game-status">
           {renderGameStatus()}
         </div>
-        <button onClick={handleRestart}>Restart</button>
+        <button className="restart" onClick={handleRestart}>Restart</button>
       </div>
       {showModal && (
         <div className="modal">
