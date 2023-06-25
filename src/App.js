@@ -29,9 +29,6 @@ const App = () => {
     setState({ ...state, gameMode: mode });
   };
 
-  // const handleSymbolSelect = (symbol) => {
-  //   setState({ ...state, userSymbol: symbol });
-  // };
 
   const handleCellClick = (index) => {
     if (!state.board[index] && !state.gameOver) {
@@ -232,13 +229,13 @@ const App = () => {
       } else {
         return (
           <div>
-            <p>It&#39s a tie!</p>
+            <p>It&apos;s a tie!</p>
             <p>Score:</p>
             <p>X: {state.scores.X}</p>
             <p>O: {state.scores.O}</p>
             <p>Ties: {state.scores.ties}</p>
             <div className="modal">
-              <p>It&#39s a tie!</p>
+              <p>It&apos;s a tie!</p>
               <button onClick={handleQuit}>Quit</button>
               <button onClick={handleNextRound}>Next Round</button>
             </div>
