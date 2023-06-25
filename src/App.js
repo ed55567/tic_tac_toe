@@ -29,9 +29,9 @@ const App = () => {
     setState({ ...state, gameMode: mode });
   };
 
-  const handleSymbolSelect = (symbol) => {
-    setState({ ...state, userSymbol: symbol });
-  };
+  // const handleSymbolSelect = (symbol) => {
+  //   setState({ ...state, userSymbol: symbol });
+  // };
 
   const handleCellClick = (index) => {
     if (!state.board[index] && !state.gameOver) {
@@ -210,15 +210,7 @@ const App = () => {
     );
   };
 
-  const renderSymbolSelection = () => {
-    return (
-      <div className="symbol-selection">
-        <h2>Select Your Symbol:</h2>
-        <button onClick={() => handleSymbolSelect('X')}>X</button>
-        <button onClick={() => handleSymbolSelect('O')}>O</button>
-      </div>
-    );
-  };
+
 
   const renderGameStatus = () => {
     if (state.gameOver) {
@@ -277,14 +269,7 @@ const App = () => {
     );
   }
 
-  if (state.gameMode === 'player' && !state.userSymbol) {
-    return (
-      <div className="App">
-        <h1>Tic Tac Toe</h1>
-        {renderSymbolSelection()}
-      </div>
-    );
-  }
+
 
   return (
     <div className="App">
