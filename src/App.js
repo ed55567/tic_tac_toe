@@ -200,10 +200,10 @@ const App = () => {
   const renderStartMenu = () => {
     return (
       <div className="start-menu">
-        <h2>Select Game Mode:</h2>
         <h3>REMEMBER: X GOES FIRST <br>
         </br>X IS ALWAYS PLAYER 1<br>
         </br>O IS ALWAYS PLAYER 2 / CPU</h3>
+        <h2>Select Game Mode:</h2>
         <button className="cpu-menu" onClick={() => handleModeSelect('cpu')}>NEW GAME (VS CPU)</button>
         <button className="player-menu" onClick={() => handleModeSelect('player')}>NEW GAME (VS PLAYER)</button>
       </div>
@@ -216,11 +216,7 @@ const App = () => {
     if (state.gameOver) {
       if (state.winner) {
         return (
-          <div className='info'>
-            <p>Score:</p>
-            <p>X: {state.scores.X}</p>
-            <p>O: {state.scores.O}</p>
-            <p>Ties: {state.scores.ties}</p>
+          <div>
             <div className="modal">
             </div>
           </div>
@@ -239,11 +235,13 @@ const App = () => {
     } else {
       return (
         <div>
+          <p>Current Player: {state.currentPlayer === 'X' ? 'Player 1' : 'Player 2'}</p>
           <p>Score:</p>
           <div className="info">
             <p id="x">X: {state.scores.X}</p>
-            <p id="o">O: {state.scores.O}</p>
             <p id="ties">Ties: {state.scores.ties}</p>
+            <p id="o">O: {state.scores.O}</p>
+            
           </div>
         </div>
       );
@@ -260,7 +258,6 @@ const App = () => {
       </div>
     );
   }
-
 
 
   return (
