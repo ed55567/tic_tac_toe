@@ -1,15 +1,29 @@
-.App {
-  text-align: center;
-  margin-top: 50px;
-}
-
-body{
+body {
   background-color: #192a32;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  font-family: "Outfit-Bold", Helvetica;
+  background-color: #1f3540;
+  box-shadow: inset 0px -10px 0px #10212a;
+  padding: 40px;
+  border-radius: 30px;
 }
 
 h1 {
-  font-size: 34px;
+  font-size: 54px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 26px;
   margin-bottom: 20px;
 }
 
@@ -21,6 +35,43 @@ h1 {
   align-items: center;
   gap: 40px;
 }
+
+.cpu-menu {
+  font-weight: 700;
+  color: #192a32;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 40px;
+  background-color: #ffc760;
+  border-radius: 30px;
+  box-shadow: inset 0px -4px 0px #cc8b13;
+  width: 100%;
+}
+
+.player-menu{
+  font-weight: 700;
+  color: #192a32;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 40px;
+  background-color: #31c3bd;
+  border-radius: 30px;
+  box-shadow: inset 0px -4px 0px #1e9a93;
+  width: 100%;
+}
+
+.cpu-menu:hover {
+  background-color: #cc8b13;
+}
+
+.player-menu:hover {
+  background-color: #1e9a93;
+}
+
 
 .game {
   display: flex;
@@ -50,28 +101,31 @@ h1 {
   cursor: pointer;
 }
 
-#x{
+#x {
   background-color: #31c3bd;
   border-radius: 15px;
-  height: 25px;
+  height: 20px;
   width: 60px;
   align-items: center;
+  padding: 5px;
 }
 
-#o{
+#o {
   background-color: #f2b137;
   border-radius: 15px;
-  height: 25px;
+  height: 20px;
   width: 60px;
   align-items: center;
+  padding: 5px;
 }
 
-#ties{
+#ties {
   background-color: #a8bec9;
   border-radius: 15px;
-  height: 25px;
+  height: 20px;
   width: 100px;
   align-items: center;
+  padding: 5px;
 }
 
 .info {
@@ -142,4 +196,3 @@ button {
 button:hover {
   background-color: #2980b9;
 }
-

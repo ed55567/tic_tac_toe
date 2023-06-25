@@ -201,8 +201,8 @@ const App = () => {
     return (
       <div className="start-menu">
         <h2>Select Game Mode:</h2>
-        <button onClick={() => handleModeSelect('cpu')}>New Game vs CPU</button>
-        <button onClick={() => handleModeSelect('player')}>New Game vs Player</button>
+        <button className="cpu-menu" onClick={() => handleModeSelect('cpu')}>NEW GAME (VS CPU)</button>
+        <button className="player-menu" onClick={() => handleModeSelect('player')}>NEW GAME (VS PLAYER)</button>
       </div>
     );
   };
