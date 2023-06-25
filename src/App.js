@@ -232,13 +232,13 @@ const App = () => {
       } else {
         return (
           <div>
-            <p>It's a tie!</p>
+            <p>It&#39s a tie!</p>
             <p>Score:</p>
             <p>X: {state.scores.X}</p>
             <p>O: {state.scores.O}</p>
             <p>Ties: {state.scores.ties}</p>
             <div className="modal">
-              <p>It's a tie!</p>
+              <p>It&#39s a tie!</p>
               <button onClick={handleQuit}>Quit</button>
               <button onClick={handleNextRound}>Next Round</button>
             </div>
@@ -250,7 +250,7 @@ const App = () => {
         <div>
           <p>Current Player: {state.currentPlayer}</p>
           <p>Score:</p>
-          <div class="info">
+          <div className="info">
             <p id="x">X: {state.scores.X}</p>
             <p id="o">O: {state.scores.O}</p>
             <p id="ties">Ties: {state.scores.ties}</p>
