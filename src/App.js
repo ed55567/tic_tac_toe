@@ -76,15 +76,31 @@ const App = () => {
         }
         return acc;
       }, []);
+
+      const moves = [];
+       for (let i = 0; i < emptyCells.length; i++) {
+      const move = {};
+      move.index = emptyCells[i];
+      state.board[emptyCells[i]] = 'O';
+
+      const result = minimax(state.board, 'X');
+      move.score = result.score;
+
+      state.board[emptyCells[i]] = '';
+      moves.push(move);
+    }
+  
+      
   
       const bestMove = minimax(state.board, 'O').index;
       handleCellClick(bestMove);
     }, 500); // 1-second delay to make it seem like the CPU is "thinking"
   };
 
+
   const minimax = (board, player) => {
     const emptyCells = getEmptyCells(board);
-
+  
     if (checkWinner(board) === 'X') {
       return { score: -1 };
     } else if (checkWinner(board) === 'O') {
@@ -92,13 +108,13 @@ const App = () => {
     } else if (emptyCells.length === 0) {
       return { score: 0 };
     }
-
+  
     const moves = [];
     for (let i = 0; i < emptyCells.length; i++) {
       const move = {};
       move.index = emptyCells[i];
       board[emptyCells[i]] = player;
-
+  
       if (player === 'O') {
         const result = minimax(board, 'X');
         move.score = result.score;
@@ -106,32 +122,33 @@ const App = () => {
         const result = minimax(board, 'O');
         move.score = result.score;
       }
-
+  
       board[emptyCells[i]] = '';
       moves.push(move);
     }
-
+  
     let bestMove;
     if (player === 'O') {
-      let bestScore = -Infinity;
+      let bestScore = Infinity; // Changed to positive infinity
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score < bestScore) { // Changed to prioritize lower score
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    } else {
+      let bestScore = -Infinity; // Changed to negative infinity
       for (let i = 0; i < moves.length; i++) {
         if (moves[i].score > bestScore) {
           bestScore = moves[i].score;
           bestMove = i;
         }
       }
-    } else {
-      let bestScore = Infinity;
-      for (let i = 0; i < moves.length; i++) {
-        if (moves[i].score < bestScore) {
-          bestScore = moves[i].score;
-          bestMove = i;
-        }
-      }
     }
-
+  
     return moves[bestMove];
   };
+  
 
   const getEmptyCells = (board) => {
     const emptyCells = [];
